@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lol-ceaee-deployment
+  labels:
+    app: lol-ceaee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lol-ceaee
+  template:
+    metadata:
+      labels:
+        app: lol-ceaee
+    spec:
+      containers:
+        - name: lol-ceaee-container
+          image: pipejet/lol-ceaee:latest
+          ports:
+            - containerPort: 3000
